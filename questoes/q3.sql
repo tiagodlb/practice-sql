@@ -1,3 +1,2 @@
 -- Exercício 3
-SELECT users.id, t1.name, t3.name, t4.name, t2."endDate" FROM users JOIN users AS t1 ON t1.id = 30 JOIN educations AS t2 ON users.id = 30 JOIN courses as t3 ON t2.id = 30 JOIN schools as t4 ON t4.id = 30;
---Where em algum lugar :(
+SELECT users.id, t1.name, t3.name AS "course", t4.name AS "school", t2."endDate" FROM users JOIN users AS t1 ON t1.id = 30 JOIN educations AS t2 ON t2."userId" = t1.id AND t2."userId" = users.id JOIN courses AS t3 ON t2."courseId" = t3.id JOIN schools AS t4 ON t2."courseId" = t4.id WHERE t2.status='finished';
